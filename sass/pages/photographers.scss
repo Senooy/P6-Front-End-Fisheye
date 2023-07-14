@@ -1,3 +1,33 @@
+.photographer-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+
+    & .photographer-card {
+        width: 12em;
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__pp {
+            object-fit: cover;
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow-clip-margin: unset;
+        }
+
+        & h2 {
+            color: $color-secondary;
+            font-size: 36px;
+        }
+    }
+}
+
+//First css
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

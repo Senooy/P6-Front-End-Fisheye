@@ -2,51 +2,12 @@
 <html>
 
 <head>
-  <style>
-    .photographer_section {
-      display: flex;
-      justify-content: center;
-    }
-
-    article {
-      width: 12em;
-    }
-
-    a {
-      color: black;
-      text-decoration: none;
-      display: block;
-    }
-
-    /* 
-    .pp-photographer {
-      border-radius: 50%;
-      overflow: hidden;
-    }
-
-    .pp-photographer img {
-      object-fit: contain;
-      width: 100%;
-    } */
-
-    span {
-      display: block;
-    }
-
-    .photographerCard__pp,
-    .pp-photographer {
-      object-fit: cover;
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      overflow-clip-margin: unset;
-    }
-  </style>
   <meta charset="utf-8">
-  <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
-  <link rel="icon" type="image/png" href="/public/assets/icons/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <title>Lab - Fisheye</title>
+  <link rel="icon" type="image/png" href="/public/assets/icons/favicon.png">
+
+  <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -56,42 +17,16 @@
   </header>
 
   <main id="main">
-    <!-- <div class="photographer_write">
-      <article>
-        <a href="#">
-            <img class="pp-photographer" src="/assets/photographers/MimiKeel.jpg" alt="">
-          <h2>Mimi Keel</h2>
-        </a>
-
-        <div class="details">
-          <p class="city">London, UK</p>
-          <p class="quote">Voir le beau dans le quotidien</p>
-          <p class="forfait">400€/jour</p>
-        </div>
-      </article>
-
-      <article>
-        <a href="#">
-            <img class="pp-photographer" src="/assets/photographers/TracyGalindo.jpg" alt="">
-          <h2>Tracy Galindo</h2>
-        </a>
-
-          <p class="city">Montréal, Canada</p>
-          <p class="quote">Photographe freelance</p>
-          <p class="forfait">500€/jour</p>
-      </article>
-    </div> -->
-
     <div class="photographer-section"></div>
   </main>
-  
+
   <!-- Api -->
   <script src="/js/api/api.js"></script>
 
   <!-- Models -->
   <script src="/js/models/Photographer.js"></script>
 
-  <!-- Api -->
+  <!-- Templates -->
   <script src="/js/templates/PhotographerCard.js"></script>
 
   <!-- Entry point -->
