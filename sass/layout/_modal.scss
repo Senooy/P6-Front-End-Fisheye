@@ -1,0 +1,12 @@
+.modal-section {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+    @include background-color($color-senary, 0.3); 
+}

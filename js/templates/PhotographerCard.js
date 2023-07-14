@@ -12,10 +12,10 @@ class PhotographerCard {
                 <img class="photographer-card__pp round" 
                     src="${this._photographer.portrait}" 
                     alt="">
-                <h2>${this._photographer.name}</h2>
+                <h2 lang="en">${this._photographer.name}</h2>
             </a>
 
-            <p class="photographer-card__localisation">${this._photographer.localisation}</p>
+            <p class="photographer-card__localisation" lang="en">${this._photographer.localisation}</p>
             <p class="photographer-card__tagline">${this._photographer.tagline}</p>
             <p class="photographer-card__price">${this._photographer.price}</p>
         `
@@ -32,7 +32,7 @@ class PhotographerCard {
                 <p class="photographer-header__tagline">${this._photographer.tagline}</p>
             </div>
 
-            <button class="btn btn--contact" onclick="toggleModal()">Contactez-moi</button>
+            <button class="btn btn--hover" onclick="toggleForm()">Contactez-moi</button>
             
             <img src="${this._photographer.portrait}" alt="" class="photographer-header__pp round">
         `

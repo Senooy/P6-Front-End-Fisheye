@@ -36,7 +36,7 @@ class PhotographersApi extends Api {
 
         const photographer = data.photographers.find((p) => p.id === id);
         if (!photographer) {
-            throw new Error(`Photographer with ID ${id} not found`);
+            throw new Error(`Photographer with ID '${id}' not found`);
         }
         
         const medias = data.media.filter((m) => m.photographerId === id);

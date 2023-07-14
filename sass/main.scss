@@ -9,14 +9,16 @@
 
 @import "./components/buttons";
 @import "./components/insertLikesAndPrice";
-@import "./components/media-order";
+@import "./components/listbox";
 
 
 @import "./layout/header";
+@import "./layout/modal";
+@import "./layout/lightbox";
 
 
 @import "./pages/photographers-section";
 @import "./pages/photographer-header";
 @import "./pages/medias-section";
-@import "./pages/modal";
+@import "./pages/form";
 

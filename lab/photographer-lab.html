@@ -13,7 +13,7 @@
 <body>
   <div class="container">
     <header>
-      <a href="/lab/index-lab.html">
+      <a href="/index.html">
         <img src="/public/assets/icons/logo.png" class="logo" />
       </a>
     </header>
@@ -23,56 +23,55 @@
 
       <div class="insertLikesAndPrice"></div>
 
-      <div class="order-medias order-medias--select">
-        <label for="order-medias">Trier par</label>
-        <select name="media" id="order-medias">
-          <option value="likes">Popularité</option>
-          <option value="date">Date</option>
-          <option value="name">Titre</option>
-        </select>
-      </div>
-
-      <!-- 
-      <div class="dropdown">
+      <div class="mediaListbox" aria-label="Trier les médias">
         Trier par
-        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Popularité
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#" data-sort-by="likes">Popularité</a></li>
-          <li><a class="dropdown-item" href="#" data-sort-by="date">Date</a></li>
-          <li><a class="dropdown-item" href="#" data-sort-by="title">Titre</a></li>
-        </ul>
-      </div> -->
+        <div class="listbox">
+          <button class="btn btn--hover listbox__btn" aria-haspopup="listbox" aria-expanded="false"
+            aria-controls="sort-options">
+            <span class="listbox__label">Popularité</span>
+            <i class="fa-solid fa-chevron-down"></i>
+            <span class="listbox__icon" aria-hidden="true"></span>
+          </button>
+
+          <ul id="sort-options" class="listbox__list" role="listbox">
+            <li class="listbox__item" role="option" tabindex="0" aria-selected="true" data-sort-by="likes">Popularité
+            </li>
+            <li class="listbox__item" role="option" tabindex="0" aria-selected="false" data-sort-by="date">Date</li>
+            <li class="listbox__item" role="option" tabindex="0" aria-selected="false" data-sort-by="title">Titre</li>
+          </ul>
+        </div>
+      </div>
 
       <section class="medias-section"></section>
 
     </main>
 
     <section id="modal-section" class="modal-section">
-      <div class="modal-section__contact">
-
-        <header class="modal-section__contact__header">
-          <h2 class="contact-name-photographer"></h2>
-          <img src="/public/assets/icons/close.svg" onclick="toggleModal()" />
+      <div id="contact-form" class="contact">
+        <header class="contact__header">
+          <h2 id="contact-name-photographer" class="contact__header__photographer"></h2>
+          <button class="btn-close">
+            <img src="/public/assets/icons/close.svg" onclick="toggleForm()" />
+          </button>
         </header>
 
-        <form id="toContactPhotographer">
-          <label for="firstName">Prénom</label>
-          <input type="text" id="firstName" name="firstName" />
+      </div>
 
-          <label for="lastName">Nom</label>
-          <input type="text" id="lastName" name="lastName" />
+      <div id="lightbox" class="lightbox">
+        <button class="lightbox__close">
+          <img src="/public/assets/icons/close.svg" />
+        </button>
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" />
+        <article class="lightbox__media-container"></article>
 
-          <label for="msg">Votre message</label>
-          <textarea name="msg" id="msg"></textarea>
-
-          <button class="btn btn--submit">Envoyer</button>
-        </form>
-
+        <div class="lightbox__nav">
+          <button class="lightbox__nav__prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="lightbox__nav__next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -86,18 +85,26 @@
     <script src="/js/models/Photographer.js"></script>
     <script src="/js/models/Media.js"></script>
 
+    <!-- Utils -->
+    <script src="/js/utils/ListBox.js"></script>
+    <script src="/js/utils/Sort.js"></script>
+    <script src="/js/utils/Lightbox.js"></script>
+    <script src="/js/utils/UpdateLike.js"></script>
+    <script src="/js/utils/Form.js"></script>
+
+
     <!-- Templates -->
     <script src="/js/templates/PhotographerCard.js"></script>
     <script src="/js/templates/MediaCard.js"></script>
     <script src="/js/templates/DisplayData.js"></script>
 
-    <!-- Utils -->
-    <!-- <script src="/js/pages/photographer.js"></script> -->
-    <script src="/js/utils/contactForm.js"></script>
-    <!-- <script src="/js/utils/orderMedia.js"></script> -->
+
+    <script src="/js/utils/DisplayMedia.js"></script>
 
     <!-- Entry point -->
+    <script src="/js/pages/photographerApp.js"></script>
     <script src="lab.js"></script>
+
   </div>
 </body>
 
