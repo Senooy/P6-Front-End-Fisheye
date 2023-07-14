@@ -6,11 +6,10 @@ class App {
     }
 
     async getData() {
-        const photographers = await this.photographersApi.getAllPhotographers();
-        console.log(`photographer : ${JSON.stringify(photographers)}`);
+        const photographer = await this.photographersApi.getPhotographerById(243)
 
-        const photographer = await this.photographersApi.getPhotographerById(930)
-        console.log(`un photographe : ${JSON.stringify(photographer)}`);
+       const medias = photographer.medias.map(media => new MediasFactory(media))
+       console.log(medias);
     }
 
     async main() {
@@ -29,3 +28,4 @@ class App {
 
 const app = new App()
 app.main()
+app.getData()

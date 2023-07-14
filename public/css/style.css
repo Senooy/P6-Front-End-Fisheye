@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -19,6 +25,27 @@ a {
   background-color: #901C1C;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.info {
+  background-color: #DB8876;
+  padding: 1em;
+  font-weight: 700;
+  width: 23%;
+  border-radius: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort-medias select {
+  appearance: none;
+  background-color: #901C1C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10%;
+  padding: 1em;
+  cursor: inherit;
+  line-height: inherit;
 }
 
 .photograph-header {
@@ -105,7 +132,7 @@ form input {
 
 .photographer-section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
   margin-top: 100px;
 }
@@ -152,6 +179,23 @@ form input {
 .photographer_section article img {
   height: 200px;
   width: 200px;
+}
+
+.photograph-header {
+  display: flex;
+  justify-content: space-around;
+}
+.photograph-header__pp {
+  object-fit: cover;
+  height: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow-clip-margin: unset;
+}
+
+.media-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /*# sourceMappingURL=style.css.map */

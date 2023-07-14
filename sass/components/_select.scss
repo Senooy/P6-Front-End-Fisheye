@@ -1,0 +1,15 @@
+.sort-medias {
+    select {
+        appearance: none;
+
+        background-color: $color-primary;
+        color: $white;
+        border: none;
+        border-radius: 10%;
+        padding: 1em;
+        cursor: inherit;
+        line-height: inherit;
+        // créer object spécifique et mettre border-top 
+        // border-bottom sur Date avec class middle
+    }
+}

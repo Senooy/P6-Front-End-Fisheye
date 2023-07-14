@@ -10,7 +10,7 @@ class PhotographerCard {
         //photographer.html/id=${this._photographer.id} --> quel lien mettre pour accéder à la page du photographe ??
 
         const photographerCard = `
-            <a href="#"> 
+            <a href="/photographer?id=${this._photographer.id}"> 
                 <img class="photographer-card__pp" 
                     src="${this._photographer.portrait}" 
                     alt="">
@@ -24,5 +24,9 @@ class PhotographerCard {
 
         $wrapper.innerHTML = photographerCard;
         return $wrapper;
+    }
+
+    createPhotographerPage() {
+        
     }
 }

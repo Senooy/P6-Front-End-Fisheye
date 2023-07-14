@@ -13,9 +13,31 @@
     </header>
 
     <main id="main">
-      <div class="photograph-header">
+      <section class="photograph-header">
+        <div class="photograph">
+          <h1>Mimi Keel</h1>
+          <p>London, UK</p>
+          <p>Voir le beau dans le quotidien</p>
+        </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <img src="/public/assets/photographers/MimiKeel.jpg" alt="" class="photograph-header__pp">
+      </section>
+
+      <div class="info">
+        <span class="likes">297 081 keur</span>
+        <span class="forfait">300€/jour</span>
       </div>
+
+      <div class="sort-medias">
+        <label for="sort-medias">Trier par</label>
+        <select name="media" id="sort-medias">
+          <option value="likes">Popularité</option>
+          <option value="date">Date</option>
+          <option value="name">Titre</option>
+        </select>
+      </div>
+
+      <section class="media-section"></section>
     </main>
 
     <div id="contact_modal">

@@ -34,8 +34,8 @@ class PhotographersApi extends Api {
         const data = await this.get();
         
         const photographer = data.photographers.find((p) => p.id === id);
-        const media = data.media.filter((m) => m.photographerId === id);
+        const medias = data.media.filter((m) => m.photographerId === id);
         
-        return { photographer, media };
+        return { photographer, medias };
     }
 }

@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Senooy/git@github.com:Senooy/P6-Front-End-Fisheye.git"
+    "url": "git+https://github.com/Senooy/P6-Front-End-Fisheye.git"
   },
   "author": "younes khelifi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Senooy/git@github.com:Senooy/P6-Front-End-Fisheye/issues"
+    "url": "https://github.com/Senooy/P6-Front-End-Fisheye/issues"
   },
-  "homepage": "https://github.com/git@github.com:Senooy/P6-Front-End-Fisheye#readme"
+  "homepage": "https://github.com/Senooy/P6-Front-End-Fisheye#readme"
 }

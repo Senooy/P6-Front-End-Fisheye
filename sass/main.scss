@@ -9,11 +9,14 @@
 
 @import "./components/buttons";
 @import "./components/hearts";
+@import "./components/info";
+@import "./components/select";
 
 
 @import "./layout/header";
 
 
 @import "./pages/modal";
-@import "./pages/photographers";
-@import "./pages/medias";
+@import "./pages/photographers-section";
+@import "./pages/photograph-header";
+@import "./pages/medias-section";
