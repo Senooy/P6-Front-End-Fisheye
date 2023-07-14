@@ -30,12 +30,17 @@ class PhotographersApi extends Api {
         return await this.get('photographers');
     }
 
-    async getPhotographerById(id) {
+    async getPhotographerById(identifiant) {
         const data = await this.get();
-        
+        const id = parseInt(identifiant)
+
         const photographer = data.photographers.find((p) => p.id === id);
-        const medias = data.media.filter((m) => m.photographerId === id);
+        if (!photographer) {
+            throw new Error(`Photographer with ID ${id} not found`);
+        }
         
+        const medias = data.media.filter((m) => m.photographerId === id);
+
         return { photographer, medias };
     }
 }

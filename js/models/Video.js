@@ -22,7 +22,7 @@ class Video {
     }
 
     get video() {
-        return this._video
+        return `/public/assets/portfolio/${this._photographerId}/${this._video}`
     }
 
     get likes() {
@@ -35,5 +35,9 @@ class Video {
 
     get price() {
         return this._price
+    }
+
+    get type() {
+        return 'video'
     }
 }

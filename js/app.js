@@ -5,13 +5,6 @@ class App {
         this.photographersApi = new PhotographersApi('/data/photographers-data.json')
     }
 
-    async getData() {
-        const photographer = await this.photographersApi.getPhotographerById(243)
-
-       const medias = photographer.medias.map(media => new MediasFactory(media))
-       console.log(medias);
-    }
-
     async main() {
         const photographersData = await this.photographersApi.getAllPhotographers();
 
@@ -28,4 +21,3 @@ class App {
 
 const app = new App()
 app.main()
-app.getData()

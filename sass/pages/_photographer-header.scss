@@ -1,0 +1,33 @@
+.photographer-header {
+    background-color: $color-photographer-header;
+    height: 300px;
+    margin: 0 100px;
+    padding: 0 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        color: $color-secondary;
+        font-size: 4em;
+    }
+
+    p {
+        padding: 0.45em 0;
+    }
+
+    &__localisation {
+        color: $color-primary;
+        font-size: 1.5em;
+    }
+
+    &__tagline {
+        color: $color-quaternary;
+        font-size: 1.13em;
+    }
+
+    &__pp {
+        height: 80%;
+    }
+}

@@ -22,7 +22,7 @@ class Image {
     }
     
     get image() {
-        return this._image
+        return `/public/assets/portfolio/${this._photographerId}/${this._image}`
     }
 
     get likes() {
@@ -35,5 +35,9 @@ class Image {
 
     get price() {
         return this._price
+    }
+
+    get type() {
+        return 'image'
     }
 }
