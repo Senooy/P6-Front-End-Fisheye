@@ -1,0 +1,19 @@
+.insertLikesAndPrice {
+   position: fixed;
+    bottom: 0;
+    right: 475px;
+
+    background-color: $color-tertiary;
+    padding: 21px 34px;
+
+    width: 376px;
+    border-radius: 10px 10px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        font-size: 1.4em;
+        font-weight: 700;
+    }
+}

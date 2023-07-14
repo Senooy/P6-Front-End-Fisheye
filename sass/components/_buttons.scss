@@ -16,8 +16,12 @@
 
     cursor: pointer;
 
-    &:hover {
+    &--contact:hover {
         color: $black;
         background-color: $color-tertiary;
+    }
+
+    &--submit {
+        margin-top: 26px;
     }
 }

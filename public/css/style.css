@@ -55,12 +55,15 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-.btn:hover {
+.btn--contact:hover {
   color: #000000;
   background-color: #DB8876;
 }
+.btn--submit {
+  margin-top: 26px;
+}
 
-.info {
+.insertLikesAndPrice {
   position: fixed;
   bottom: 0;
   right: 475px;
@@ -71,7 +74,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.info span {
+.insertLikesAndPrice span {
   font-size: 1.4em;
   font-weight: 700;
 }
@@ -92,6 +95,29 @@ body {
 .sort-medias option {
   border-bottom: 5px solid #FFFFFF;
   padding: 0.5em;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1;
+  padding: 8px;
+}
+.dropdown .dropdown-menu.show {
+  display: block;
+}
+.dropdown .dropdown-menu .dropdown-item {
+  display: block;
+  margin: 8px 0;
+  text-decoration: none;
+}
+.dropdown .dropdown-menu .dropdown-item:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -198,62 +224,64 @@ header h1 {
   font-weight: 500;
 }
 
-#contact_modal {
+.modal-section {
   display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(117, 117, 117, 0.3);
 }
-
-.modal {
+.modal-section__contact {
   border-radius: 5px;
   background-color: #DB8876;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  width: 33%;
   padding: 35px;
-  margin: auto;
+  margin: 5% auto;
 }
-
-.modal header {
-  justify-content: space-between;
+.modal-section__contact__header {
+  padding: 0;
   width: 100%;
+  height: 166px;
 }
-
-.modal header img {
+.modal-section__contact__header h2 {
+  font-size: 4em;
+  height: fit-content;
+}
+.modal-section__contact__header img {
   cursor: pointer;
+  align-self: flex-start;
 }
-
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
-}
-
-form {
-  display: flex;
+.modal-section__contact form {
   width: 100%;
+  margin-top: 19px;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
-form label {
+.modal-section__contact form label {
   color: #312E2E;
   font-size: 36px;
 }
-
-form div {
-  display: flex;
-  flex-direction: column;
+.modal-section__contact form input,
+.modal-section__contact form textarea {
   width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
   border: none;
   border-radius: 5px;
+}
+.modal-section__contact form input {
+  height: 68px;
+  margin-bottom: 10px;
+}
+.modal-section__contact form textarea {
+  height: 170px;
+}
+
+.show {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

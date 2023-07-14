@@ -1,0 +1,3 @@
+@mixin background-color($color : #000, $a) {
+    background-color: rgba(red($color), green($color), blue($color), $a);
+}

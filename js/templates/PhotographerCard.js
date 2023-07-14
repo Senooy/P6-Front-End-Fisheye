@@ -25,18 +25,18 @@ class PhotographerCard {
     }
 
     createPhotographerHeader($wrapper) {
-        const photographerHeader = `
+        const content = `
             <div class="photographer-header__description">
                 <h1>${this._photographer.name}</h1>
                 <p class="photographer-header__localisation">${this._photographer.localisation}</p>
                 <p class="photographer-header__tagline">${this._photographer.tagline}</p>
             </div>
 
-            <button class="btn" onclick="displayModal()">Contactez-moi</button>
+            <button class="btn btn--contact" onclick="toggleModal()">Contactez-moi</button>
             
             <img src="${this._photographer.portrait}" alt="" class="photographer-header__pp round">
         `
 
-        $wrapper.innerHTML = photographerHeader;
+        $wrapper.innerHTML = content;
     }
 }

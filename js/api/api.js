@@ -43,4 +43,8 @@ class PhotographersApi extends Api {
 
         return { photographer, medias };
     }
+
+    async getTotalLikes(photographerData) {
+        return photographerData.medias.reduce((sum, media) => sum + media.likes, 0);
+    }
 }
