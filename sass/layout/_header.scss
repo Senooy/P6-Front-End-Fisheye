@@ -1,0 +1,23 @@
+.photograph-header {
+    background-color: $color-quinary;
+    height: 300px;
+    margin: 0 100px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+h1 {
+    color: $color-primary;
+    margin-right: 100px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}

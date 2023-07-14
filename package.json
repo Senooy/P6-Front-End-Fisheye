@@ -1,0 +1,19 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.js",
+  "scripts": {
+    "sass" : "sass --watch ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Senooy/P6-Front-End-Fisheye.git"
+  },
+  "author": "younes khelifi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Senooy/P6-Front-End-Fisheye.git/issues"
+  },
+  "homepage": "https://github.com/Senooy/P6-Front-End-Fisheye.git#readme"
+}
