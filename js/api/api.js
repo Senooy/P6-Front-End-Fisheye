@@ -11,7 +11,7 @@ class Api {
         return fetch(this._url)
             .then(res => res.json())
             .then(res => dataKey ? res[dataKey] : res)
-            .catch(err => console.log('an error occurs', err))
+            .catch(err => console.log('an error occurs when retrieving the data', err))
     }
 }
 

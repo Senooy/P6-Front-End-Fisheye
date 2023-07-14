@@ -17,7 +17,8 @@
       text-decoration: none;
       display: block;
     }
-/* 
+
+    /* 
     .pp-photographer {
       border-radius: 50%;
       overflow: hidden;
@@ -32,6 +33,7 @@
       display: block;
     }
 
+    .photographerCard__pp,
     .pp-photographer {
       object-fit: cover;
       width: 100%;
@@ -39,7 +41,6 @@
       border-radius: 50%;
       overflow-clip-margin: unset;
     }
-
   </style>
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
@@ -54,7 +55,7 @@
   </header>
 
   <main id="main">
-    <div class="photographer_section">
+    <!-- <div class="photographer_write">
       <article>
         <a href="#">
             <img class="pp-photographer" src="/assets/photographers/MimiKeel.jpg" alt="">
@@ -78,12 +79,24 @@
           <p class="quote">Photographe freelance</p>
           <p class="forfait">500€/jour</p>
       </article>
-    </div>
-  </main>
+    </div> -->
 
-  <script src="lab.js"></script>
+    <div class="photographer-section"></div>
+  </main>
+  
+  <!-- Api -->
   <script src="/js/api/api.js"></script>
+
+  <!-- Models -->
+  <script src="/js/models/Photographer.js"></script>
+
+  <!-- Api -->
+  <script src="/js/templates/PhotographerCard.js"></script>
+
+  <!-- Entry point -->
   <script src="/js/app.js"></script>
+  <script src="lab.js"></script>
+
 </body>
 
 
