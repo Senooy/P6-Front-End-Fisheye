@@ -5,14 +5,14 @@ class PhotographerPage {
         this.$wrapperInsertLikesAndPrice = document.querySelector('.insertLikesAndPrice')
         this.$wrapperModalNamePhotographer = document.querySelector('.contact-name-photographer')
 
-        this.params = new URLSearchParams(window.location.search);
+        this.URLparams = new URLSearchParams(window.location.search);
         this.photographersApi = new PhotographersApi('/data/photographers-data.json')
     }
 
     async main() {
         try {
             // récupération données du photographe en fonction de l'id de
-            const id = await this.params.get("id")
+            const id = await this.URLparams.get("id")
             const photographerData = await this.photographersApi.getPhotographerById(id)
 
             // création de l'en-tête de la page

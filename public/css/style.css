@@ -66,7 +66,7 @@ body {
 .insertLikesAndPrice {
   position: fixed;
   bottom: 0;
-  right: 475px;
+  right: 0px;
   background-color: #DB8876;
   padding: 21px 34px;
   width: 376px;
@@ -79,10 +79,10 @@ body {
   font-weight: 700;
 }
 
-.sort-medias {
+.order-medias {
   margin: 20px 100px;
 }
-.sort-medias select {
+.order-medias select {
   appearance: none;
   background-color: #901C1C;
   color: #FFFFFF;
@@ -92,7 +92,7 @@ body {
   cursor: inherit;
   line-height: inherit;
 }
-.sort-medias option {
+.order-medias option {
   border-bottom: 5px solid #FFFFFF;
   padding: 0.5em;
 }
@@ -238,7 +238,7 @@ header h1 {
 .modal-section__contact {
   border-radius: 5px;
   background-color: #DB8876;
-  width: 33%;
+  width: 45%;
   padding: 35px;
   margin: 5% auto;
 }
@@ -264,13 +264,14 @@ header h1 {
 }
 .modal-section__contact form label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 2.25em;
 }
 .modal-section__contact form input,
 .modal-section__contact form textarea {
   width: 100%;
   border: none;
   border-radius: 5px;
+  font-size: 2.25em;
 }
 .modal-section__contact form input {
   height: 68px;

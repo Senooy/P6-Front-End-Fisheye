@@ -1,64 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Fisheye - photographe </title>
-    <link rel="icon" type="image/png" href="/public/assets/icons/favicon.png">
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
 
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Lab - photographe </title>
+  <link rel="icon" type="image/png" href="/public/assets/icons/favicon.png">
+  <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/6dd50c170f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="container">
     <header>
-      <img src="/public/assets/icons/logo.png" class="logo" />
+      <a href="/lab/index-lab.html">
+        <img src="/public/assets/icons/logo.png" class="logo" />
+      </a>
     </header>
 
     <main id="main">
-      <section class="photograph-header">
-        <div class="photograph">
-          <h1>Mimi Keel</h1>
-          <p>London, UK</p>
-          <p>Voir le beau dans le quotidien</p>
-        </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img src="/public/assets/photographers/MimiKeel.jpg" alt="" class="photograph-header__pp">
-      </section>
+      <section class="photographer-header"></section>
 
-      <div class="info">
-        <span class="likes">297 081 keur</span>
-        <span class="forfait">300€/jour</span>
-      </div>
+      <div class="insertLikesAndPrice"></div>
 
-      <div class="sort-medias">
-        <label for="sort-medias">Trier par</label>
-        <select name="media" id="sort-medias">
+      <div class="order-medias order-medias--select">
+        <label for="order-medias">Trier par</label>
+        <select name="media" id="order-medias">
           <option value="likes">Popularité</option>
           <option value="date">Date</option>
           <option value="name">Titre</option>
         </select>
       </div>
 
-      <section class="media-section"></section>
+      <!-- 
+      <div class="dropdown">
+        Trier par
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Popularité
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#" data-sort-by="likes">Popularité</a></li>
+          <li><a class="dropdown-item" href="#" data-sort-by="date">Date</a></li>
+          <li><a class="dropdown-item" href="#" data-sort-by="title">Titre</a></li>
+        </ul>
+      </div> -->
+
+      <section class="medias-section"></section>
+
     </main>
 
-    <div id="contact_modal">
-			<div class="modal">
-				
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="/public/assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				
-        <form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+    <section id="modal-section" class="modal-section">
+      <div class="modal-section__contact">
 
-    <script src="/js/pages/photographer.js"></script>
+        <header class="modal-section__contact__header">
+          <h2 class="contact-name-photographer"></h2>
+          <img src="/public/assets/icons/close.svg" onclick="toggleModal()" />
+        </header>
+
+        <form id="toContactPhotographer">
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" name="firstName" />
+
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" name="lastName" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="msg">Votre message</label>
+          <textarea name="msg" id="msg"></textarea>
+
+          <button class="btn btn--submit">Envoyer</button>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- Api -->
+    <script src="/js/api/api.js"></script>
+
+    <!-- Factory -->
+    <script src="/js/factories/MediaFactory.js"></script>
+
+    <!-- Models -->
+    <script src="/js/models/Photographer.js"></script>
+    <script src="/js/models/Media.js"></script>
+
+    <!-- Templates -->
+    <script src="/js/templates/PhotographerCard.js"></script>
+    <script src="/js/templates/MediaCard.js"></script>
+    <script src="/js/templates/DisplayData.js"></script>
+
+    <!-- Utils -->
+    <!-- <script src="/js/pages/photographer.js"></script> -->
     <script src="/js/utils/contactForm.js"></script>
-  </body>
+    <!-- <script src="/js/utils/orderMedia.js"></script> -->
+
+    <!-- Entry point -->
+    <script src="lab.js"></script>
+  </div>
+</body>
+
 </html>
