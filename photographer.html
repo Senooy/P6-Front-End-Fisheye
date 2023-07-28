@@ -1,47 +1,156 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Fisheye - photographe </title>
-    <link rel="icon" type="image/png" href="/public/assets/icons/favicon.png">
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+<html lang="fr">
 
-  </head>
-  <body>
-    <header>
-      <img src="/public/assets/icons/logo.png" class="logo" />
-    </header>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/569d03ca6c.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographe </title>
+</head>
 
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+<body>
+
+  <header>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo FishEye" /></a>
+  </header>
+  <main id="main" aria-hidden="true">
+    <div class="photograph-header">
+      <div id="photograph_infos">
+        <h1></h1>
+        <h2></h2>
+        <p></p>
       </div>
-    </main>
+      <div>
+        <button class="contact_button" id="contactBtn" aria-label="Contactez-moi">Contactez-moi</button>
+      </div>
+      <div id="container_img">
+        <div id="img_photograph">
 
-    <div id="contact_modal">
-			<div class="modal">
-				
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="/public/assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				
-        <form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="btn">Envoyer</button>
-				</form>
-			</div>
-		</div>
+        </div>
+      </div>
+    </div>
 
-    <script src="/js/api/api.js"></script>
+    <div id="filter">
+      <p>Trier par</p>
+      <div class="custom-select" style="width:200px;">
+        <label for="sort-select">Trier par :</label>
+        <select id="sort-select" aria-label="Trier par">
+          <option value="0" tabindex="0">Popularité</option>
+          <option disabled="disabled">────────</option>
+          <option value="1" tabindex="0">Date</option>
+          <option disabled="disabled">────────</option>
+          <option value="2" tabindex="0">Titre</option>
+        </select>
+        <div class="custom-select-style"></div>
+      </div>
 
+    </div>
 
-    <script src="/js/pages/photographer.js"></script>
-    <script src="/js/utils/contactForm.js"></script>
+    <div id="media_container">
+    </div>
 
-    
-  </body>
+    <div id="infos-gen">
+      <div class="photographer-gen">
+        <div id="likes-gen">
+          <div id="total_likes"></div>
+          <em class="fa-solid fa-heart"></em>
+        </div>
+        <div id="price-gen">
+          <div id="price"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="form-ctn" aria-hidden="false">
+    <div id="bg-panel">
+      <div class="content">
+
+        <div class="modal" tabindex="0" role="dialog" aria-describedby="form-ctn">
+          <div class="modal_header">
+            <div>
+              <h2>Contactez-moi</h2>
+              <h2 id="namePhotograph"></h2>
+            </div>
+            <div>
+              <img src="assets/icons/close.svg" id="closeImg" alt="fermeture du formulaire de contact"
+                class="close form-item" tabindex="0" aria-label="Fermer" />
+            </div>
+          </div>
+
+          <form id="form">
+            <div class="form-group">
+              <label for="first">Prénom</label>
+              <input class="text-control form-item" tabindex="0" type="text" id="first" name="first"
+                data-error-key="name" aria-required="true" />
+              <div class="alert" id="error-first" role="alert"></div>
+            </div>
+            <div class="form-group">
+              <label for="last">Nom</label>
+              <input class="text-control form-item" tabindex="0" type="text" id="last" name="last"
+                aria-required="true" />
+              <div class="alert" id="error-last" role="alert"></div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input class="text-control form-item" tabindex="0" type="text" id="email" name="email"
+                aria-required="true" />
+              <div class="alert" id="error-email" role="alert"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">Votre message</label>
+              <textarea class="text-control form-item" tabindex="0" id="message" name="message" rows="10" cols="50"
+                aria-required="true"></textarea>
+              <div class="alert" id="error-message" role="alert"></div>
+            </div>
+            <input class="contact_button close_button submit_button form-item" tabindex="0" type="submit"
+              value="Envoyer">
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+
+      <button id="lightbox_prev">
+        <em id="emPrev" class="closeLight fa-sharp fa-solid fa-angle-left" tabindex="0"></em>
+        <span class="sr-only">Precedent</span>
+      </button>
+      <button id="lightbox_close">
+        <em id="emClose" class="closeLight fa-sharp fa-solid fa-xmark" tabindex="0"></em>
+        <span class="sr-only">Fermer</span>
+      </button>
+      <button id="lightbox_next">
+        <em id="emNext" class="closeLight fa-sharp fa-solid fa-angle-right" tabindex="0"></em>
+        <span class="sr-only">Suivant</span>
+      </button>
+
+      <div id="lbx_center">
+        <div id="lightbox_media">
+          <div id="lbx_ctr">
+            <img id="lightbox_image" src="" alt="" tabindex="0" class="lightbox-image lightboxMedia" controls>
+            <video id="lightbox_video" controls tabindex="0" src="" class="lightboxMedia"></video>
+            <div id="lightbox_media_title"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="/scripts/factories/media-factory.js" type="module"></script>
+  <script src="/scripts/factories/photographer.js" type="module"></script>
+  <script src="/scripts/pages/photographer.js" type="module"></script>
+
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

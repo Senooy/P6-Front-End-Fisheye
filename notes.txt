@@ -1,0 +1,29 @@
+1_ ouvrir git bash dans le dossier du projet
+2_ taper:
+./node_modules/.bin/eslint scripts
+3_ taper:
+./node_modules/.bin/eslint scripts --fix
+
+
+------------------------------------------------------------------------
+
+// ^ : Indique le début de la chaîne de caractères.
+
+// [a-zA-Z\u00C0-\u017F\- ] : C'est une classe de caractères qui correspond à une lettre de 
+// l'alphabet en minuscule (a-z), en majuscule (A-Z), aux caractères accentués entre \u00C0 et \u017F 
+// (qui couvrent une large gamme de caractères accentués couramment utilisés) et au tiret (\-). L'espace ( ) 
+// est également inclus dans la classe de caractères.
+
+// + : Indique que la classe de caractères précédente peut apparaître une ou plusieurs fois, ce qui signifie que 
+// plusieurs lettres ou caractères de la classe peuvent être présents dans le prénom.
+
+// $ : Indique la fin de la chaîne de caractères.
+
+
+------------------------------------------------------------------------
+
+commentaire = intention du codeur (Pourquoi)
+
+
+
+

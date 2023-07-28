@@ -1,19 +1,10 @@
 {
-  "name": "fisheye",
-  "version": "1.0.0",
-  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
-  "main": "index.js",
-  "scripts": {
-    "sass" : "sass --watch ./sass/main.scss:./public/css/style.css"
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Senooy/P6-Front-End-Fisheye.git"
-  },
-  "author": "solene belaid",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Senooy/P6-Front-End-Fisheye/issues"
-  },
-  "homepage": "https://github.com/Senooy/P6-Front-End-Fisheye#readme"
+  "dependencies": {
+    "eslint-config-prettier": "^8.8.0"
+  }
 }
