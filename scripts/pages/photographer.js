@@ -165,6 +165,7 @@ function displayMedia(photographer, media) {
       }
     };
 
+    
     // gestionnaires d'événements du like pour le clavier
     likeIcon.addEventListener('keydown', (event) => {
       if (event.code === 'Enter') {
@@ -308,6 +309,8 @@ function setMediaInLightbox(mediaDataId, mediaSrc) {
   adaptLightboxToMedia(currentDataId);
 }
 
+
+
 // ouvrir la lightbox
 function openLightbox(mediaDataId, mediaSrc) {
   lightboxIsOpen = true;
@@ -347,6 +350,22 @@ emNext.addEventListener('keydown', (event) => {
 emNext.addEventListener('click', showNextMedia);
 emPrev.addEventListener('click', showPrevMedia);
 
+// Ajout d'un gestionnaire d'événement keydown sur le document pour gérer les flèches droite et gauche
+document.addEventListener('keydown', function(event) {
+  if(lightboxIsOpen) {
+    switch(event.code) {
+      case 'ArrowRight':
+        showNextMedia();
+        break;
+      case 'ArrowLeft':
+        showPrevMedia();
+        break;
+      default:
+        break;
+    }
+  }
+});
+
 // Fonction qui initialise les autres fonctions
 async function init() {
   const photographerId = getPhotographerIdFromUrl();
@@ -361,45 +380,14 @@ async function init() {
     displayMedia(photographer, photographerMedia);
     displayTotalLikes(photographerMedia, photographer);
 
+    // Écoute de l'événement de changement du select
     const sortSelect = document.getElementById('sort-select');
-
-    // Ajouter l'attribut aria-selected selon l'option sélectionnée
-    const updateAriaSelected = () => {
-      const selectedOption = sortSelect.querySelector('option[selected]');
-      if (selectedOption) {
-        selectedOption.setAttribute('aria-selected', 'true');
-      }
-    };
-
-    // mettre un écouteur d'event sur le select et mettre à jour le tri
     sortSelect.addEventListener('change', () => {
-      const sortedMedia = sortMedia(photographerMedia);
-      displayMedia(photographer, sortedMedia);
+      displayMedia(photographer, photographerMedia);
+      displayTotalLikes(photographerMedia, photographer);
     });
-
-    // Selon si la flèche haut ou bas est appuyé changer de select
-    sortSelect.addEventListener('keydown', (event) => {
-      if (event.code === 'ArrowUp' || event.code === 'ArrowDown') {
-        const { selectedIndex } = sortSelect;
-        const lastIndex = sortSelect.options.length - 1;
-
-        // Gèrer le déplacement de la sélection vers le haut et le bas avec les flèches haut/bas
-        if (event.code === 'ArrowUp' && selectedIndex > 0) {
-          sortSelect.selectedIndex = selectedIndex - 1;
-        } else if (event.code === 'ArrowDown' && selectedIndex < lastIndex) {
-          sortSelect.selectedIndex = selectedIndex + 1;
-        }
-        // Mettre à jour l'attribut aria-selected après le déplacement de la sélection
-        updateAriaSelected();
-      } else if (event.code === 'Enter') {
-        const sortedMedia = sortMedia(photographerMedia);
-        displayMedia(photographer, sortedMedia);
-      }
-    });
-
-    // Mettre à jour l'attribut aria-selected au chargement de la page
-    updateAriaSelected();
   } else {
+    // redirige vers la page d'accueil si l'ID du photographe n'existe pas
     window.location.href = 'index.html';
   }
 }
