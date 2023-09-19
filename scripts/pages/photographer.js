@@ -186,6 +186,7 @@ function displayMedia(photographer, media) {
 function closeLightbox() {
   lightboxIsOpen = false;
   checkLighboxIsOpen();
+  stopVideoPlayback();
 
   emClose.setAttribute('aria-label', 'Fermeture du formulaire de contact');
   emPrev.setAttribute('aria-label', 'Précédent');
@@ -235,22 +236,34 @@ function getPhotographerFolderPath(photographerName) {
 
 emClose.addEventListener('click', closeLightbox);
 
+// Stop la vidéo lors du passage à un média
+
+function stopVideoPlayback() {
+  if (mediaVideo) {
+    mediaVideo.pause();
+  }
+}
+
+
 /* bloquer à la dernière image et ne pas revenir en
 arrière au premier élémment si je clique sur next au dernier élément */
 async function showNextMedia() {
-  const currentDataId = parseInt(mediaImage.getAttribute('data-id'), 10);
-  const nextIndex = currentDataId + 1;
+  const currentElement = mediaImage.style.display === 'block' ? mediaImage : mediaVideo;
+  const currentDataId = parseInt(currentElement.getAttribute('data-id'), 10);
+  
+  // Ici, on utilise le modulo pour avoir une navigation circulaire
+  const nextIndex = (currentDataId + 1) % photographerMedia.length;
 
-  // Il n'y a pas de photo à droite de la dernière
-  if (nextIndex >= photographerMedia.length) {
-    return;
-  }
+  console.log("Current Data ID:", currentDataId);
+  console.log("Next Index:", nextIndex);
+
   const data = await fetchData();
   const photographerId = getPhotographerIdFromUrl();
   const photographer = getPhotographerById(data, photographerId);
   const mediaFolder = getPhotographerFolderPath(photographer.name);
   const nextMedia = photographerMedia[nextIndex];
   let mediaSrc = '';
+
   if (nextMedia.image) {
     mediaSrc = mediaFolder + nextMedia.image;
     mediaImage.setAttribute('data-id', nextIndex);
@@ -258,25 +271,28 @@ async function showNextMedia() {
     mediaSrc = mediaFolder + nextMedia.video;
     mediaVideo.setAttribute('data-id', nextIndex);
   }
+
   setMediaInLightbox(nextIndex, mediaSrc);
-  // mediaTitle.innerHTML = nextMedia.title;
+  mediaTitle.innerHTML = nextMedia.title;
 }
+
+
 
 // Voir le media précédent
 async function showPrevMedia() {
   const currentDataId = parseInt(mediaImage.getAttribute('data-id'), 10);
-  const prevIndex = currentDataId - 1;
+  const prevIndex = (currentDataId - 1 + photographerMedia.length) % photographerMedia.length;
 
-  // l'index ne peut être en dessous de zéro
-  if (prevIndex < 0) {
-    return;
-  }
+  console.log("Current Data ID:", currentDataId);
+  console.log("Prev Index:", prevIndex);
+
   const data = await fetchData();
   const photographerId = getPhotographerIdFromUrl();
   const photographer = getPhotographerById(data, photographerId);
   const mediaFolder = getPhotographerFolderPath(photographer.name);
   let mediaSrc = '';
   const prevMedia = photographerMedia[prevIndex];
+
   if (prevMedia.image) {
     mediaSrc = mediaFolder + prevMedia.image;
     mediaImage.setAttribute('data-id', prevIndex);
@@ -284,8 +300,11 @@ async function showPrevMedia() {
     mediaSrc = mediaFolder + prevMedia.video;
     mediaVideo.setAttribute('data-id', prevIndex);
   }
-  setMediaInLightbox(prevIndex, mediaSrc)
+
+  setMediaInLightbox(prevIndex, mediaSrc);
+  mediaTitle.innerHTML = prevMedia.title;
 }
+
 
 // faire en sorte que la lightbox s'adapte soit aux img soit aux video
 function adaptLightboxToMedia(lightboxIndex) {
@@ -315,6 +334,7 @@ function setMediaInLightbox(mediaDataId, mediaSrc) {
 function openLightbox(mediaDataId, mediaSrc) {
   lightboxIsOpen = true;
   checkLighboxIsOpen();
+  stopVideoPlayback();
 
   setMediaInLightbox(mediaDataId, mediaSrc);
 
@@ -347,8 +367,14 @@ emNext.addEventListener('keydown', (event) => {
 });
 
 // quand on appuie sur next ou prev lancer showNext ou showPrev
-emNext.addEventListener('click', showNextMedia);
-emPrev.addEventListener('click', showPrevMedia);
+emNext.addEventListener('click', () => {
+  stopVideoPlayback(); // Ajouté pour stopper la vidéo lors du passage au média suivant
+  showNextMedia();
+});
+emPrev.addEventListener('click', () => {
+  stopVideoPlayback(); // Ajouté pour stopper la vidéo lors du passage au média précédent
+  showPrevMedia();
+});
 
 // Ajout d'un gestionnaire d'événement keydown sur le document pour gérer les flèches droite et gauche
 document.addEventListener('keydown', function(event) {
