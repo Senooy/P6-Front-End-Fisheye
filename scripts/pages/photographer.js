@@ -280,7 +280,8 @@ async function showNextMedia() {
 
 // Voir le media précédent
 async function showPrevMedia() {
-  const currentDataId = parseInt(mediaImage.getAttribute('data-id'), 10);
+  const currentElement = mediaImage.style.display === 'block' ? mediaImage : mediaVideo;
+  const currentDataId = parseInt(currentElement.getAttribute('data-id'), 10);
   const prevIndex = (currentDataId - 1 + photographerMedia.length) % photographerMedia.length;
 
   console.log("Current Data ID:", currentDataId);
@@ -320,6 +321,7 @@ function adaptLightboxToMedia(lightboxIndex) {
 function setMediaInLightbox(mediaDataId, mediaSrc) {
   mediaImage.src = mediaSrc;
   mediaVideo.src = mediaSrc;
+  mediaVideo.setAttribute('data-id', mediaDataId); // Ajout de cette ligne
 
   const currentDataId = mediaDataId;
   const currentMedia = photographerMedia[currentDataId];
