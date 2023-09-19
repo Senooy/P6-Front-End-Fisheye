@@ -1,8 +1,16 @@
-// media factory
-export function mediaFactory(item, mediaFolder, index) {
-  if (item.image) {
+// Interface Media
+class Media {
+  createMedia(item, mediaFolder, index) {
+    throw new Error("This method must be overwritten!");
+  }
+}
+
+// Classe pour chaque type de média
+// Classe image
+class ImageMedia extends Media {
+  createMedia(item, mediaFolder, index) {
     const imgPath = `assets/images/${mediaFolder}/${item.image}`;
-    const mediaHtml = `<article>
+    return `<article>
       <figure>
         <div class="media_item">
           <a>
@@ -20,14 +28,18 @@ export function mediaFactory(item, mediaFolder, index) {
         </div>
       </figure>
     </article>`;
-    return mediaHtml;
-  } if (item.video) {
+  }
+}
+
+// Classe vidéo
+class VideoMedia extends Media {
+  createMedia(item, mediaFolder, index) {
     const videoPath = `assets/images/${mediaFolder}/${item.video}`;
-    const mediaHtml = `<article>
+    return `<article>
       <figure>
         <div class="media_item">
           <a>
-          <video id="${item.id}" class="media_obj" src="${videoPath}" data-id="${index}" tabindex="0" aria-label="${item.title}, closeup view"></video>
+            <video id="${item.id}" class="media_obj" src="${videoPath}" data-id="${index}" tabindex="0" aria-label="${item.title}, closeup view"></video>
           </a>
         </div>
         <div class="infos-medias">
@@ -41,7 +53,18 @@ export function mediaFactory(item, mediaFolder, index) {
         </div>
       </figure>
     </article>`;
-    return mediaHtml;
   }
-  return '';
+}
+
+// Factory function
+export function mediaFactory(item, mediaFolder, index) {
+  let media;
+  if (item.image) {
+    media = new ImageMedia();
+  } else if (item.video) {
+    media = new VideoMedia();
+  } else {
+    return '';
+  }
+  return media.createMedia(item, mediaFolder, index);
 }
